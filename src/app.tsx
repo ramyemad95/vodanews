@@ -25,9 +25,8 @@ const navItems: NavItem[] = [
 ];
 
 export const App = (): JSX.Element => {
-  return( 
-    <ApplicationProvider mapping={eva.mapping} theme={{...eva.dark, ...customTheme}}>
-       <Navigation navItems={navItems} />;
-    </ApplicationProvider>
-  )
+  return(<ApplicationProvider mapping={eva.mapping} theme={{...eva.light,...customTheme}}>
+              <Navigation navItems={navItems} />
+     </ApplicationProvider>
+     )
 };

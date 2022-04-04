@@ -1,10 +1,10 @@
 import React from 'react';
-import {Text, SafeAreaView} from '../../../../core/components/index';
+import {Text, SafeAreaView,ApplicationProvider,eva} from '../../../../core/components/index';
 
 export const WeatherScreen = (): JSX.Element => {
   return (
     <SafeAreaView>
-      <Text>Weather Forecast </Text>
+      <Text>Weather Forecast</Text>
     </SafeAreaView>
   );
 };

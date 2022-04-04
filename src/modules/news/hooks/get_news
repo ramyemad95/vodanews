@@ -1,0 +1,37 @@
+import { useState, useEffect } from 'react';
+import {fetchNewsApi } from'../services/news_service'
+
+
+
+
+export  function useGetApi() {
+    
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+
+
+  const getData =  async function () {
+    console.log("called" )
+      setLoading(true);
+      try {
+        const responseData = await fetchNewsApi()
+        console.log("responseData")
+        setData(responseData);
+      } catch (err) {
+        setData(null);
+        setError(err);
+      } finally {
+        setLoading(false);
+      }
+    }
+
+    useEffect(() => { getData()}, []);
+
+
+
+
+  // return [data, error, loading];
+  return {data, error, loading};
+
+}

@@ -1,4 +1,4 @@
-import {Text, SafeAreaView,} from '../../../../core/components/index';
+import {Text, SafeAreaView,eva,ApplicationProvider} from '../../../../core/components/index';
 import React from 'react';
 
 export const SettingsScreen = (): JSX.Element => {
@@ -6,6 +6,5 @@ export const SettingsScreen = (): JSX.Element => {
     <SafeAreaView>
       <Text>Settings!</Text>
     </SafeAreaView>
-
   );
 };
