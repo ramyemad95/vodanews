@@ -1,8 +1,8 @@
-export interface newsItem {
+export interface newsModel {
     title: string;
-    link: string;
+    author: string;
     description: string;
-    full_description: string;
-    image_url: string;
-    pubDate: string;
+    content: string;
+    urlToImage: string;
+    publishedAt: string;
   }
