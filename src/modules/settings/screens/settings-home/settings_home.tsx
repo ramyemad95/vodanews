@@ -1,10 +1,17 @@
-import {Text, SafeAreaView,eva,ApplicationProvider} from '../../../../core/components/index';
+import {View} from '../../../../core/components/index';
 import React from 'react';
+import { DarkMode } from '../../components/dark_mode';
+import {useTheme} from '@ui-kitten/components';
+
+
 
 export const SettingsScreen = (): JSX.Element => {
+  const theme = useTheme();
+
+
   return (
-    <SafeAreaView>
-      <Text>Settings!</Text>
-    </SafeAreaView>
+    <View style={{ flex: 1, paddingTop:16,paddingHorizontal:16,backgroundColor:theme['background-basic-color-1'] }}>
+      <DarkMode/>
+    </View>
   );
 };

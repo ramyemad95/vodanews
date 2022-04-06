@@ -1,6 +1,11 @@
 export const config = {
-      apiKey: 'pub_6193c0b2b3f1d5028997278bdbf3a804d3eb',
-      language:'EN',
-      type:'news'
+      apiKey: '07234ebeac494b8f8783520e4a43cfd3',
+      language:'en',
+      type:'news',
+      languages: [
+        {id: 'en', name: 'English'},
+        {id: 'ar', name: 'Arabic'},
+      ],
+      defaultLang: 'en',
+    };
 
-  };

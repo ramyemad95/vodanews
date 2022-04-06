@@ -1,22 +1,28 @@
 
 import React from 'react';
-import {Navigation,ApplicationProvider,eva} from './core/components/index';
+import {Navigation,ApplicationProvider,eva,View} from './core/components/index';
 import {NavItem} from './core/interfaces/index';
-import {WeatherScreen} from '@news/screens/news-home/news_home'
+import {NewsStack} from'./modules/news/screens/news_nav'
 import {SettingsScreen} from '@settings/screens/settings-home/settings_home';
+import { useMode } from './core/hooks/use_mode';
+import {ModeContext} from './core/context/mode_context';
+import {useTheme} from '@ui-kitten/components';
+import { RootLayout } from './core/components/root_layout';
+
+
 import * as customTheme from './assets/jsons/custom-theme.json';
 
 
 const navItems: NavItem[] = [
   {
-    name: 'weather',
-    title: 'Weather',
-    component: WeatherScreen,
+    name: 'News',
+    title: 'News',
+    component: NewsStack,
     icon: 'newspaper-variant-multiple-outline',
     iconFocused: 'newspaper-variant-multiple',
   },
   {
-    name: 'settings',
+    name: 'Settings',
     title: 'Settings',
     component: SettingsScreen,
     icon: 'cog-outline',
@@ -25,8 +31,19 @@ const navItems: NavItem[] = [
 ];
 
 export const App = (): JSX.Element => {
-  return(<ApplicationProvider mapping={eva.mapping} theme={{...eva.light,...customTheme}}>
-              <Navigation navItems={navItems} />
-     </ApplicationProvider>
+  const mode = useMode();
+  const theme = mode.mode === 'light' ? eva.light : eva.dark;
+  const theme_ = useTheme();
+
+  
+  
+  return(<ModeContext.Provider value={mode}>
+        <ApplicationProvider mapping={eva.mapping} theme={{...theme,...customTheme}} >
+          <RootLayout>
+            <Navigation navItems={navItems} />
+          </RootLayout>
+        </ApplicationProvider>
+     </ModeContext.Provider>
+
      )
 };
