@@ -1,0 +1,9 @@
+{
+    "news": "News",
+    "settings": "Settings",
+    "searchText":"search news",
+    "darkModeTitle":"Dark mode",
+    "darkModeDesc":"Toggle between Dark/Light mode",
+    "language":"language",
+    "apiLanguage":"en"
+  }
