@@ -4,7 +4,7 @@ export const config = {
       type:'news',
       languages: [
         {id: 'en', name: 'English'},
-        {id: 'ar', name: 'Arabic'},
+        {id: 'ar', name: 'عربي'},
       ],
       defaultLang: 'en',
     };
