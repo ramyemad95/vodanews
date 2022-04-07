@@ -62,7 +62,7 @@ export const NewsScreen = ({navigation}): JSX.Element => {
           placeholder={t('searchText').toString()}
           onChangeText={(text) =>onSearchChange(text) }
           darkMode={isDarkMode()}
-          onClearPress={() => setFilteredData([])}
+          onClearPress={() => setFilteredData(data)}
                     />
       {loading ? <ActivityIndicator/> : (
         <FlatList style={{flex:1}}
