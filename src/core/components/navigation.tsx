@@ -20,7 +20,9 @@ export const Navigation = (props: Props): JSX.Element => {
   
   const config = {
     screens: {
-      Settings: 'settings',
+      Settings: {
+        path:'settings/:testDeepLink'
+      },
       News: 'news',
     }
   };
@@ -35,9 +37,13 @@ export const Navigation = (props: Props): JSX.Element => {
     Linking.getInitialURL().then((v)=>{
       console.log("linking",v)
     })
-   
-  }, [])
-  
+    Linking.addEventListener("url", (url)=>{
+      console.log("linking url",url)
+
+    });
+
+}, []);
+     
   return (
     <NavigationContainer linking={linking} fallback={<Text>Loading...</Text>}>
       <Tab.Navigator

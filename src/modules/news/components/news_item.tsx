@@ -3,6 +3,7 @@ import { newsModel } from '../interfaces/news_data';
 import React from 'react';
 import { Card, CardTitle, CardContent, CardAction, CardButton, CardImage } from 'react-native-cards';
 import {useTheme} from '@ui-kitten/components';
+import { isDarkMode } from '@app/core/helper/utils';
 
 
 interface Props {
@@ -17,13 +18,13 @@ export const NewsItem = (props:Props): JSX.Element => {
     <CardImage 
       source={{uri: props.newsItem.urlToImage}} 
       title={props.newsItem.title}
-      isDark={(theme['text-basic-color']=="#FFFFFF")}
+      isDark={isDarkMode()}
       
     />
     <CardTitle
       subtitle={props.newsItem.author}
       color={theme['text-basic-color']}
-      isDark={(theme['text-basic-color']=="#FFFFFF")}
+      isDark={isDarkMode()}
 
 
     />

@@ -5,6 +5,9 @@ import {NewsItem} from '../../components/news_item'
 import {useTheme} from '@ui-kitten/components';
 import SearchBar from "react-native-dynamic-search-bar";
 import { newsModel } from '../../interfaces/news_data';
+import {useTranslation} from 'react-i18next';
+import { isDarkMode } from '@app/core/helper/utils';
+
 
 
 
@@ -19,7 +22,8 @@ export const NewsScreen = ({navigation}): JSX.Element => {
   const [filteredData, setFilteredData] = React.useState<newsModel[]>();
 
   const theme = useTheme();
-  
+
+  const {t} = useTranslation('strings');
 
   const onRefresh = React.useCallback(() => {
     getData()
@@ -34,6 +38,9 @@ export const NewsScreen = ({navigation}): JSX.Element => {
    setFilteredData(data)
     }, [data]);
 
+    React.useEffect(() => { 
+      getData()
+    }, [t]);
 
 
   const  onSearchChange= (searchText:string)=>{
@@ -52,9 +59,9 @@ export const NewsScreen = ({navigation}): JSX.Element => {
   return (
     <View style={{ flex: 1, paddingTop:16,paddingHorizontal:6,backgroundColor:theme['background-basic-color-1'] }}>
       <SearchBar style={{padding:0 ,backgroundColor:theme['background-basic-color-2']}}
-          placeholder="Search news"
+          placeholder={t('searchText').toString()}
           onChangeText={(text) =>onSearchChange(text) }
-          darkMode={(theme['text-basic-color']=="#FFFFFF")}
+          darkMode={isDarkMode()}
           onClearPress={() => setFilteredData([])}
                     />
       {loading ? <ActivityIndicator/> : (
